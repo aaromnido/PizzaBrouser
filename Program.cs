@@ -16,6 +16,9 @@ builder.Services.AddSingleton<PizzaService>();
 builder.Services.AddHttpClient();
 builder.Services.AddSqlite<PizzaStoreContext>("Data Source=pizza.db");
 
+// Add the AppState class
+builder.Services.AddScoped<PizzaSalesState>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
