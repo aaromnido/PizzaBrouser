@@ -1,10 +1,14 @@
 using PizzaBrouser.Components;
+using PizzaBrouser.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
+
+// Register the pizzas service
+builder.Services.AddSingleton<PizzaService>();
 
 var app = builder.Build();
 

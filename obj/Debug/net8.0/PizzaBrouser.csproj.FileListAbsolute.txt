@@ -27,3 +27,4 @@
 /Users/fernandoval/Development/blazor-learning/PizzaBrouser/obj/Debug/net8.0/PizzaBrouser.pdb
 /Users/fernandoval/Development/blazor-learning/PizzaBrouser/obj/Debug/net8.0/PizzaBrouser.genruntimeconfig.cache
 /Users/fernandoval/Development/blazor-learning/PizzaBrouser/obj/Debug/net8.0/ref/PizzaBrouser.dll
+/Users/fernandoval/Development/blazor-learning/PizzaBrouser/obj/Debug/net8.0/PizzaBrouser.sourcelink.json

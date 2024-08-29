@@ -1,0 +1,49 @@
+@page "/pizzas"
+@using PizzaBrouser.Models
+@inject PizzaService PizzaSvc
+@rendermode InteractiveServer
+
+<h1>Choose your pizza</h1>
+
+<p>We have all these delicious recipes:</p>
+
+@if (todaysPizzas == null)
+{
+    <p>We're finding out what pizzas are available today...</p>
+}
+else
+{
+    <table class="table table-striped">
+        <thead class="table-light">
+            <tr>
+                <th>Pizza Name</th>
+                <th>Description</th>
+                <th class="text-center">Vegetarian</th>
+                <th class="text-center">Vegan</th>
+                <th class="text-end">Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var pizza in todaysPizzas)
+            {
+                <tr>
+                    <td class="fw-bold">@pizza.Name</td>
+                    <td>@pizza.Description</td>
+                    <td class="text-center">@(@pizza.Vegetarian ? "Yes" : "No")</td>
+                    <td class="text-center">@(@pizza.Vegan ? "Yes" : "No")</td>
+                    <td class="text-end">@($"{pizza.Price:0.00} €")</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private Pizza[] todaysPizzas;
+
+    protected override async Task OnInitializedAsync()
+    {
+        todaysPizzas = await PizzaSvc.GetPizzasAsync(); // Fetch pizzas from the service
+    }
+
+}
